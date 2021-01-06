@@ -7,6 +7,9 @@ import functools
 import pytz
 from django.utils import timezone
 
+DEFAULT_TZ_UTC = "UTC"
+DEFAULT_TZ_SH = "Asia/Shanghai"
+
 
 def get_current_timezone():
     return timezone.get_current_timezone()

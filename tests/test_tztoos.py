@@ -7,10 +7,10 @@ from pytimetools import tztools
 
 
 def test_tz_utc():
-    time_zone = 'UTC'
+    time_zone = tztools.DEFAULT_TZ_UTC
     assert tztools.get_timezone(time_zone) == pytz.UTC
 
 
 def test_tz_utc8():
-    time_zone = 'Asia/Shanghai'
+    time_zone = tztools.DEFAULT_TZ_SH
     assert tztools.get_timezone(time_zone) != pytz.UTC

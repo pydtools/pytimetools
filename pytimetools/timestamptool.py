@@ -88,3 +88,21 @@ def is_timestamp_ms(timestamp):
         raise TypeError('timestamp:({}) is not int or len({}) < 13'.format(
             type(timestamp), timestamp_length))
     return True
+
+
+def is_timestamp_expired(timestamp=None, other_timestamp=None,
+                         timeout=60*1*10*1000):
+    """
+
+    :param timestamp:
+    :param other_timestamp:
+    :param timeout:
+    :return:
+    """
+    if not timestamp:
+        timestamp = get_timestamp_ms()
+    other_timestamp = int(other_timestamp)
+    is_timestamp_ms(other_timestamp)
+    # timestamp < (other_timestamp + timeout)
+    ttl = other_timestamp + timeout - timestamp
+    return ttl

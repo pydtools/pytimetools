@@ -2,6 +2,11 @@
 """
 doc:
 local time tools
+
+
+local -> UTC
+local -> timestamp
+local -> gmt
 """
 import datetime
 

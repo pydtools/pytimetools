@@ -1,18 +1,31 @@
 #!/usr/bin/env python
 """
 doc:
-utc <-> local
-utc <-> timestamp
+local:
+local -> utc
+local -> timestamp
+local -> gmt
+
+utc:
+utc -> local
+utc -> timestamp
+utc -> gmt
+
+timestamp:
+timestamp -> utc
+timestamp -> local
+timestamp -> gmt
+
+gmt:
+gmt -> utc
+gmt -> local
+gmt -> timestamp
 """
 
 import datetime
 import time
 import pytz
 
-from pytimetools.timestamptool import (
-    is_timestamp_ms,
-    get_timestamp_ms,
-)
 from pytimetools.tztools import get_current_timezone
 
 
@@ -76,21 +89,4 @@ def timestamp_to_utc(timestamp):
     utc_time = datetime.datetime.fromtimestamp(timestamp, tz=pytz.UTC)
     return utc_time
 
-
-def is_timestamp_expired(timestamp=None, other_timestamp=None,
-                         timeout=60*1*10*1000):
-    """
-
-    :param timestamp:
-    :param other_timestamp:
-    :param timeout:
-    :return:
-    """
-    if not timestamp:
-        timestamp = get_timestamp_ms()
-    other_timestamp = int(other_timestamp)
-    is_timestamp_ms(other_timestamp)
-    # timestamp < (other_timestamp + timeout)
-    ttl = other_timestamp + timeout - timestamp
-    return ttl
 
