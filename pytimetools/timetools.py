@@ -262,3 +262,4 @@ def is_timestamp_expired_local(timestamp=None, other_timestamp=None,
     # timestamp < (other_timestamp + timeout)
     ttl = other_timestamp + timeout - timestamp
     return ttl
+
