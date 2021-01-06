@@ -11,6 +11,7 @@ import datetime
 
 import pytz
 
+from pytimetools.fmttools import fmt_utc_to_gmt
 from pytimetools.tztools import get_current_timezone
 
 
@@ -55,12 +56,12 @@ def utc_to_localtime(utctime):
 
 def utc_to_gmt(utc_time):
     """
-    UTC -> GMT
+    UTC(utc+0) -> GMT(0时区)
+    时间时间
     :param utc_time:
     :return:
     """
-    # todo
-    pass
+    return fmt_utc_to_gmt(utc_time)
 
 
 def utc_to_timestamp(utc_time):
