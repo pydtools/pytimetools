@@ -1,6 +1,5 @@
 # [pytimetools](https://pypi.org/project/pytimetools/#description)
-python datetime tools 
-
+python datetime tools (py开发中的时间转换工具集合)
 
 
 ## todo
@@ -17,7 +16,9 @@ CST: UTC +8    =    CST: GMT +8
 PST: UTC -8    =    PST: GMT -8
 ```
 
-## use
+## use in django 
+* django
+* tz:settings.TIME_ZONE
 
 
 ```shell

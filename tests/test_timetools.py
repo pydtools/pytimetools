@@ -3,10 +3,8 @@
 doc:
 """
 
-
-import datetime
-from pytimetools import timetools
+from pytimetools import localtools
 
 
-def test_get_now_local():
-    assert timetools.get_now_local() == datetime.datetime.now()
+def test_local_get_now():
+    assert localtools.get_now()
