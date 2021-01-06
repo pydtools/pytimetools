@@ -49,3 +49,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
+## 国内镜像仓库
+
+```
+https://pypi.tuna.tsinghua.edu.cn/simple/pytimetools/
+```
