@@ -4,9 +4,11 @@ doc:
 local time tools
 
 
-local -> UTC
+local:
+local -> utc
 local -> timestamp
 local -> gmt
+
 """
 import datetime
 import time

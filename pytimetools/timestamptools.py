@@ -2,7 +2,10 @@
 """
 doc:
 时间戳相关:
-
+timestamp:
+timestamp -> utc
+timestamp -> local
+timestamp -> gmt
 """
 import datetime
 import time

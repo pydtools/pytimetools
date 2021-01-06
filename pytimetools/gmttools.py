@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 """
 doc:
-GMT -> UTC
-GMT -> local
-GMT -> timestamp
+
+gmt:
+gmt -> utc
+gmt -> local
+gmt -> timestamp
 """
 
 

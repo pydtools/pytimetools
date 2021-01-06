@@ -2,6 +2,10 @@
 """
 doc:
 utc time tools
+utc:
+utc -> local
+utc -> timestamp
+utc -> gmt
 """
 import datetime
 
