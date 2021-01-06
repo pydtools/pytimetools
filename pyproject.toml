@@ -6,6 +6,7 @@ authors = ["huoyinghui <hyhlinux@163.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+django = "^2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
