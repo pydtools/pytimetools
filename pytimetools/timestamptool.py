@@ -2,9 +2,12 @@
 """
 doc:
 时间戳相关:
+
 """
 import datetime
 import time
+
+import pytz
 
 from pytimetools.tztools import get_current_timezone
 
@@ -63,19 +66,6 @@ def get_timestamp_and_ms():
     return int(timestamp), int(timestamp * 1000)
 
 
-def timestamp_to_local(timestamp):
-    """
-    时间戳->local time 默认时区
-    13位只取前10位
-
-    :param timestamp: 10
-    :return:
-    """
-    tz = get_current_timezone()
-    local_time = datetime.datetime.fromtimestamp(timestamp, tz=tz)
-    return local_time
-
-
 def is_timestamp_ms(timestamp):
     """
 
@@ -106,3 +96,36 @@ def is_timestamp_expired(timestamp=None, other_timestamp=None,
     # timestamp < (other_timestamp + timeout)
     ttl = other_timestamp + timeout - timestamp
     return ttl
+
+
+def timestamp_to_utc(timestamp):
+    """
+    时间戳转utc
+    :param timestamp:
+    :return:
+    """
+    utc_time = datetime.datetime.fromtimestamp(timestamp, tz=pytz.UTC)
+    return utc_time
+
+
+def timestamp_to_local(timestamp):
+    """
+    时间戳->local time 默认时区
+    13位只取前10位
+
+    :param timestamp: 10
+    :return:
+    """
+    tz = get_current_timezone()
+    local_time = datetime.datetime.fromtimestamp(timestamp, tz=tz)
+    return local_time
+
+
+def timestamp_to_gmt(timestamp):
+    """
+    时间戳 -> GMT
+    :param timestamp:
+    :return:
+    """
+    # todo
+    pass

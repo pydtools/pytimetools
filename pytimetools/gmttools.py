@@ -20,3 +20,33 @@ def datetime_to_gmt(date_time_utc=None):
     """
     gmt_fmt = '%a, %d %b %Y %H:%M:%S GMT'
     return date_time_utc.strftime(gmt_fmt)
+
+
+def gmt_to_utc(gmt_time):
+    """
+
+    :param gmt_time:
+    :return:
+    """
+    # todo
+    pass
+
+
+def gmt_to_local(gmt_time):
+    """
+
+    :param gmt_time:
+    :return:
+    """
+    # todo
+    pass
+
+
+def gmt_to_timestamp(gmt_time):
+    """
+
+    :param gmt_time:
+    :return:
+    """
+    # todo
+    pass

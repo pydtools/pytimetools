@@ -7,6 +7,8 @@ import datetime
 
 import pytz
 
+from pytimetools.tztools import get_current_timezone
+
 
 def get_now(tz=pytz.UTC):
     """
@@ -28,6 +30,35 @@ def get_now_from_delta(seconds=1):
     return passed_time
 
 
+def utc_to_localtime(utctime):
+    """
+    naive time 与 active time的概念
+    1.数据库中的DateTimeFiled需要转换localtime
+    2.前端传入的时间最好时utctime
+
+    astimezone:
+        可以将一个时区的时间转换成另一个时区的时间,
+        前提是这个被转换的时间必须是一个aware时间
+    https://www.cnblogs.com/limaomao/p/9257014.html
+    :param utctime:
+    :return:
+    """
+    # naive time(不知道自己时区) => aware time(有时区)
+    utc = utctime.replace(tzinfo=pytz.UTC)
+    local_time = utc.astimezone(get_current_timezone())
+    return local_time
+
+
+def utc_to_gmt(utc_time):
+    """
+    UTC -> GMT
+    :param utc_time:
+    :return:
+    """
+    # todo
+    pass
+
+
 def utc_to_timestamp(utc_time):
     """
     时间戳转utc
@@ -44,5 +75,6 @@ def utc_to_timestamp_ms(utc_time):
     :param utc_time:
     :return:
     """
-    timestamp = utc_time.timestamp()
+    timestamp = utc_to_timestamp(utc_time)
     return int(timestamp) * 1000
+

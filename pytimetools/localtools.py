@@ -9,6 +9,9 @@ local -> timestamp
 local -> gmt
 """
 import datetime
+import time
+
+import pytz
 
 
 def get_now():
@@ -63,3 +66,47 @@ def is_date_expired_local(now_date_local=None, other_date=None):
         raise TypeError('other_date:({}) is not datetime.date'.format(
             type(other_date)))
     return now_date_local > other_date
+
+
+def localtime_to_utc(local_time):
+    """
+    localtime -> utc
+    1.本地时区转为时间戳
+    2.时间戳转为utc
+
+    上海1927改表, 故不使用replace
+    :param local_time:
+    :return:
+    """
+    return local_time.astimezone(pytz.UTC)
+    # timestamp = localtime_to_timestamp(local_time)
+    # return timestamp_to_utc(timestamp)
+
+
+def localtime_to_gmt(local_time):
+    """
+    localtime -> GMT
+
+    :param local_time:
+    :return:
+    """
+    # todo
+    pass
+
+
+def localtime_to_timestamp(local_time):
+    """
+
+    :param local_time:
+    :return:
+    """
+    return time.mktime(local_time.timetuple())
+
+
+def localtime_to_timestamp_ms(local_time):
+    """
+
+    :param local_time:
+    :return:
+    """
+    return int(localtime_to_timestamp(local_time))*1000
