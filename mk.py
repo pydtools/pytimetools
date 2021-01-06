@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 doc:
-py Instead of Makefile
+mk.py Instead of Makefile
 """
 
 import os
@@ -21,9 +21,10 @@ class Makefile(object):
         os.system(self.cmd_test)
 
     def build(self):
-        os.system(self.cmd_publish)
+        os.system(self.cmd_build)
 
     def publish(self):
+        self.build()
         os.system(self.cmd_publish)
 
 
@@ -31,8 +32,7 @@ def main():
     make = Makefile()
     make.env()
     make.test()
-    make.build()
-    pass
+    make.publish()
 
 
 if __name__ == '__main__':
