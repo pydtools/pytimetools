@@ -10,7 +10,7 @@ include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
 python = "~2.7 || ^3.5"
-django = "^2.2"
+django = "^1.10"
 pytz = "^2017.3"
 
 [tool.poetry.dev-dependencies]

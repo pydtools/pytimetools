@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 doc:
 """
-import functools
+# import functools
 
 import pytz
 from django.utils import timezone
@@ -19,7 +20,7 @@ def get_utc_timezone():
     return pytz.UTC
 
 
-@functools.lru_cache()
+# @functools.lru_cache()
 def get_timezone(time_zone=''):
     """
     TIME_ZONE = 'Asia/Shanghai'
