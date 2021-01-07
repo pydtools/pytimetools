@@ -4,7 +4,7 @@ from pytimetools import localtools
 
 
 def test_version():
-    assert __version__ == '0.1.3.6'
+    assert __version__ == '0.1.3.7'
 
 
 def test_utc_to_gmt():
