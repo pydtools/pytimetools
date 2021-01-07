@@ -16,12 +16,12 @@ from pytimetools.fmttools import fmt_utc_to_gmt
 from pytimetools.tztools import get_current_timezone
 
 
-def get_now(tz=pytz.UTC):
+def get_now():
     """
 
     :return: 返回tz时区的当前时间, 默认返回utc时间
     """
-    return datetime.datetime.now(tz=tz)
+    return datetime.datetime.now(tz=pytz.UTC)
 
 
 def get_now_from_delta(seconds=1):

@@ -2,25 +2,28 @@
 # -*- coding: utf-8 -*-
 """
 doc:
+目前设定时区是上海. utc+8
 """
-# import functools
-
 import pytz
-from django.utils import timezone
 
 DEFAULT_TZ_UTC = "UTC"
 DEFAULT_TZ_SH = "Asia/Shanghai"
 
 
 def get_current_timezone():
-    return timezone.get_current_timezone()
+    """
+    todo: 可以动态配置
+    :return:
+    """
+    # from django.utils import timezone
+    # return timezone.get_current_timezone()
+    return pytz.timezone(DEFAULT_TZ_SH)
 
 
 def get_utc_timezone():
     return pytz.UTC
 
 
-# @functools.lru_cache()
 def get_timezone(time_zone=''):
     """
     TIME_ZONE = 'Asia/Shanghai'

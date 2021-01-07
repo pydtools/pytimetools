@@ -16,6 +16,8 @@ import time
 
 import pytz
 
+from pytimetools.fmttools import fmt_utc_to_gmt
+
 
 def get_now():
     """
@@ -93,8 +95,8 @@ def localtime_to_gmt(local_time):
     :param local_time:
     :return:
     """
-    # todo
-    pass
+    utc_time = local_time.astimezone(pytz.UTC)
+    return fmt_utc_to_gmt(utc_time)
 
 
 def localtime_to_timestamp(local_time):
