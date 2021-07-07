@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 doc:
 utc time tools
@@ -11,15 +12,16 @@ import datetime
 
 import pytz
 
+from pytimetools.fmttools import fmt_utc_to_gmt
 from pytimetools.tztools import get_current_timezone
 
 
-def get_now(tz=pytz.UTC):
+def get_now():
     """
 
     :return: 返回tz时区的当前时间, 默认返回utc时间
     """
-    return datetime.datetime.now(tz=tz)
+    return datetime.datetime.now(tz=pytz.UTC)
 
 
 def get_now_from_delta(seconds=1):
@@ -55,12 +57,12 @@ def utc_to_localtime(utctime):
 
 def utc_to_gmt(utc_time):
     """
-    UTC -> GMT
+    UTC(utc+0) -> GMT(0时区)
+    时间时间
     :param utc_time:
     :return:
     """
-    # todo
-    pass
+    return fmt_utc_to_gmt(utc_time)
 
 
 def utc_to_timestamp(utc_time):
